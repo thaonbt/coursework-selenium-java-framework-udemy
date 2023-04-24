@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
@@ -51,9 +52,30 @@ public class BaseTest {
 		
 		if(broswerName.contains("chrome")) {
 			ChromeOptions options = new ChromeOptions();
+			
+			/** tell the driver to simply accept the Insecure Certificates whenever meets it */
+//			options.setAcceptInsecureCerts(true);
+			
+			/** block/unblock pop-up windows */
+//			options.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+			
+			/** set download directory */
+//			Map<String, Object> prefs = new HashMap<String, Object>();
+//			prefs.put("download.default_directory", "/directory/path");
+//			options.setExperimentalOption("preps", prefs);
+			
+			/** set add-on extensions go with browser driver */
+//			options.addExtensions("filepaths");		
+			
+			/** set proxy will be used for browser driver */
+//			Proxy proxy = new Proxy();
+//			proxy.setHttpProxy("192.168.1.0:4444");
+//			options.setCapability("proxy", proxy); 	// -> browser will start with proxy
+			
 			if(broswerName.contains("headless")) {
 				options.addArguments("headless");
 			}
+			
 			driver = new ChromeDriver(options);
 			driver.manage().window().setSize(new Dimension(1440, 900)); //(Optional) help to run full screen even in headless mode
 		}else if(broswerName.equalsIgnoreCase("firefox")) {
