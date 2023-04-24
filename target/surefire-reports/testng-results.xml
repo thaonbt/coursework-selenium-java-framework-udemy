@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="3" total="4" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="66738" started-at="2023-04-24T03:51:05Z" finished-at="2023-04-24T03:52:12Z">
+    <groups>
+      <group name="ErrorHandling">
+        <method signature="ErrorValidationsTest.LoginErrorValidation()[pri:0, instance:UdemyRSA.Tests.ErrorValidationsTest@2f465398]" name="LoginErrorValidation" class="UdemyRSA.Tests.ErrorValidationsTest"/>
+      </group> <!-- ErrorHandling -->
+    </groups>
+    <test name="Submit Order Test" duration-ms="7" started-at="2023-04-24T03:51:05Z" finished-at="2023-04-24T03:51:05Z">
+    </test> <!-- Submit Order Test -->
+    <test name="Error Validations Test" duration-ms="66738" started-at="2023-04-24T03:51:05Z" finished-at="2023-04-24T03:52:12Z">
+      <class name="UdemyRSA.Tests.ErrorValidationsTest">
+        <test-method status="PASS" signature="launchApplication()[pri:0, instance:UdemyRSA.Tests.ErrorValidationsTest@2f465398]" name="launchApplication" is-config="true" duration-ms="64596" started-at="2023-04-24T03:51:05Z" finished-at="2023-04-24T03:52:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method status="PASS" signature="LoginErrorValidation()[pri:0, instance:UdemyRSA.Tests.ErrorValidationsTest@2f465398]" name="LoginErrorValidation" duration-ms="1635" started-at="2023-04-24T03:52:10Z" finished-at="2023-04-24T03:52:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginErrorValidation -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:UdemyRSA.Tests.ErrorValidationsTest@2f465398]" name="tearDown" is-config="true" duration-ms="427" started-at="2023-04-24T03:52:12Z" finished-at="2023-04-24T03:52:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- UdemyRSA.Tests.ErrorValidationsTest -->
+    </test> <!-- Error Validations Test -->
+  </suite> <!-- Suite -->
+</testng-results>
