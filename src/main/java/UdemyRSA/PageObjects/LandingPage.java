@@ -1,6 +1,5 @@
 package UdemyRSA.PageObjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,16 +22,16 @@ public class LandingPage extends AbstractComponent {
 	//WebElement userEmail = driver.findElement(By.id("userEmail"));
 	//PageFactory
 	@FindBy(id="userEmail")
-	WebElement userEmail;
+	private WebElement userEmail;
 	
 	@FindBy(id="userPassword")
-	WebElement userPassword;
+	private WebElement userPassword;
 	
 	@FindBy(id="login")
-	WebElement submit;
+	private WebElement submit;
 	
 	@FindBy(css="[class*='flyInOut']")
-	WebElement errorMessage;
+	private WebElement errorMessage;
 	
 	//Actions method
 	public ProductCatalogue loginApplication(String email, String password) {

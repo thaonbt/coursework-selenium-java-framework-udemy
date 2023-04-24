@@ -1,9 +1,7 @@
 package UdemyRSA.Tests;
 
 import java.io.IOException;
-import java.util.List;
 
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -29,7 +27,7 @@ public class ErrorValidationsTest extends BaseTest {
 	
 		String productName = "ZARA COAT 3";
 		ProductCatalogue productCatalogue = landingPage.loginApplication("tayoga2016@gmail.com", "TAYoga2016");
-		List<WebElement> products = productCatalogue.getProductList();
+//		List<WebElement> products = productCatalogue.getProductList();
 		productCatalogue.addProductToCart(productName);
 		CartPage cartPage = productCatalogue.goToCartPage();
 		Boolean match= cartPage.verifyProductDisplay("ZARA COAT 33333");

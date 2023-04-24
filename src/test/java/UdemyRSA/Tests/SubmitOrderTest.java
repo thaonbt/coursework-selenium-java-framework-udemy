@@ -1,14 +1,9 @@
 package UdemyRSA.Tests;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.annotations.DataProvider;
@@ -32,7 +27,7 @@ public class SubmitOrderTest extends BaseTest {
 //		ProductCatalogue productCatalogue = landingPage.loginApplication("tayoga2016@gmail.com", "TAYoga2016");
 //		ProductCatalogue productCatalogue = landingPage.loginApplication(email, password);
 		ProductCatalogue productCatalogue = landingPage.loginApplication(input.get("email"), input.get("password"));
-		List<WebElement> products = productCatalogue.getProductList();
+//		List<WebElement> products = productCatalogue.getProductList();
 		productCatalogue.addProductToCart(input.get("productName"));
 		CartPage cartPage = productCatalogue.goToCartPage();
 		Boolean match= cartPage.verifyProductDisplay(input.get("productName"));

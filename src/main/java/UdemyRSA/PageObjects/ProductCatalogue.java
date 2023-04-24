@@ -22,12 +22,12 @@ public class ProductCatalogue extends AbstractComponent {
 	}
 	
 	@FindBy(css=".mb-3")
-	List<WebElement> products;
+	private List<WebElement> products;
 	
-	By productsBy = By.cssSelector(".mb-3");
-	By addToCart = By.cssSelector(".card-body button:last-of-type");
-	By toastMessage = By.cssSelector("#toast-container");
-	By spinner = By.cssSelector(".ng-animating");
+	private By productsBy = By.cssSelector(".mb-3");
+	private By addToCart = By.cssSelector(".card-body button:last-of-type");
+	private By toastMessage = By.cssSelector("#toast-container");
+	private By spinner = By.cssSelector(".ng-animating");
 	
 	public List<WebElement> getProductList() {
 		waitForElementToAppear(productsBy);

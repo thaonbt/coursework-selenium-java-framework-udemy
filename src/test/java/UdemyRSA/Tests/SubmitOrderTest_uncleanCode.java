@@ -1,27 +1,14 @@
 package UdemyRSA.Tests;
 
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
 import java.io.IOException;
-import java.time.Duration;
-import java.util.List;
-import java.util.zip.CheckedOutputStream;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import org.testng.Assert;
+import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
 import UdemyRSA.PageObjects.CartPage;
 import UdemyRSA.PageObjects.CheckoutPage;
 import UdemyRSA.PageObjects.ConfirmationPage;
-import UdemyRSA.PageObjects.LandingPage;
 import UdemyRSA.PageObjects.ProductCatalogue;
 import UdemyRSA.TestComponents.BaseTest;
 
@@ -48,7 +35,7 @@ public class SubmitOrderTest_uncleanCode extends BaseTest {
 //		landingPage.loginApplication("tayoga2016@gmail.com", "TAYoga2016");
 		ProductCatalogue productCatalogue = landingPage.loginApplication("tayoga2016@gmail.com", "TAYoga2016");
 //		ProductCatalogue productCatalogue = new ProductCatalogue(driver);
-		List<WebElement> products = productCatalogue.getProductList();
+//		List<WebElement> products = productCatalogue.getProductList();
 		productCatalogue.addProductToCart(productName);
 //		productCatalogue.goToCartPage();
 		CartPage cartPage = productCatalogue.goToCartPage();
