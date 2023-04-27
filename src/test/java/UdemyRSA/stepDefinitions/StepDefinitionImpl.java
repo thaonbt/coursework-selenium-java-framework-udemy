@@ -53,9 +53,19 @@ public class StepDefinitionImpl extends BaseTest {
 	}
 	
 //	Then 	"THANKYOU FOR THE ORDER." message is displayed on Confirmation page
-	@Then("{String} message is displayed on Confirmation page")
+	@Then("^\"([^\"]*)\" message is displayed on Confirmation page$")
 	public void message_is_displayed_on_Confirmation_page(String expectedString) {
 		String confirmMessage = confirmationPage.verifyConfirmationMessage();
 		AssertJUnit.assertTrue(confirmMessage.equalsIgnoreCase(expectedString));
+		
+		driver.close();
+	}
+	
+//	Then "Incorrect email or password." message is displayed
+	@Then("^\"([^\"]*)\" message is displayed$")
+	public void message_is_displayed(String expectedString) {
+		Assert.assertEquals(expectedString, landingPage.getErrorMessage());	//Correct
+		
+		driver.close();
 	}
 }

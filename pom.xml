@@ -84,10 +84,40 @@
 	    <artifactId>cucumber-java8</artifactId>
 	    <version>7.11.2</version>
 	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
+	<dependency>
+	    <groupId>io.cucumber</groupId>
+	    <artifactId>cucumber-testng</artifactId>
+	    <version>7.11.2</version>
+	</dependency>
+
 
   </dependencies>
   
   <profiles>
+  <!-- Cucumber  -->
+  	<profile>
+  		<id>CucumberTests</id>
+  		<build>
+	  		<pluginManagement> <!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+		      <plugins>
+		      		<!-- maven execution, see https://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html -->
+			      <plugin>
+			        <groupId>org.apache.maven.plugins</groupId>
+			        <artifactId>maven-surefire-plugin</artifactId>
+			        <version>3.0.0</version>
+			        <configuration>
+			          <includes>
+			            <include>**/TestNGTestRunner.java</include> 		<!-- file to execute -->
+			          </includes>
+			        </configuration>
+			      </plugin>
+		      </plugins>
+	  		</pluginManagement>
+  		</build>
+  	</profile>
+  	<!-- TestNG  -->
   	<profile>
   		<id>ErrorValidation</id>
   		<build>

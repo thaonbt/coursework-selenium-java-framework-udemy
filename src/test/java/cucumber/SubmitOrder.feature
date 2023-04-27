@@ -6,7 +6,7 @@ Feature: Purchase the order from Ecommerce website
 	Background:
 	Given 	I landed on Ecommerce Page
 
-  @tag2
+  @Regression
   Scenario Outline: submitOrder
     Positive Test of Submitting the order
     

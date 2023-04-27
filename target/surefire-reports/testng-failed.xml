@@ -4,16 +4,24 @@
   <listeners>
     <listener class-name="UdemyRSA.TestComponents.Listeners"/>
   </listeners>
+  <test thread-count="5" verbose="0" name="Submit Order Test(failed)" parallel="tests">
+    <classes>
+      <class name="UdemyRSA.Tests.SubmitOrderTest">
+        <methods>
+          <include name="submitOrder" invocation-numbers="1"/>
+          <include name="tearDown"/>
+          <include name="OrderHistoryTest"/>
+          <include name="launchApplication"/>
+        </methods>
+      </class> <!-- UdemyRSA.Tests.SubmitOrderTest -->
+    </classes>
+  </test> <!-- Submit Order Test(failed) -->
   <test thread-count="5" verbose="0" name="Error Validations Test(failed)" parallel="tests">
-    <groups>
-      <run>
-        <include name="ErrorHandling"/>
-      </run>
-    </groups>
     <classes>
       <class name="UdemyRSA.Tests.ErrorValidationsTest">
         <methods>
           <include name="LoginErrorValidation"/>
+          <include name="ProductErrorValidation"/>
           <include name="tearDown"/>
           <include name="launchApplication"/>
         </methods>
