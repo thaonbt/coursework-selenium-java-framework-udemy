@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
@@ -33,14 +36,17 @@ public class BaseTest {
 	
 	public WebDriver driver;
 	public LandingPage landingPage;
+	final String fileSeparator = FileSystems.getDefault().getSeparator();
 
 	public WebDriver initializeDriver() throws IOException {
-		
+
 		/** Properties class */ 		// -> to read global properties
 		Properties prop = new Properties();
 		//Convert files into InputStream to be able to load the file properly
 //		FileInputStream fis = new FileInputStream("D:\\Selenium\\Udemy_Selenium-Framework-Design\\SeleniumFrameworkDesign\\src\\main\\java\\UdemyRSA\\Resources\\GlobalData.properties");
-		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\UdemyRSA\\Resources\\GlobalData.properties");
+//		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\UdemyRSA\\Resources\\GlobalData.properties");
+		Path resourcesPath = Paths.get("src", "main", "java", "UdemyRSA", "Resources");
+		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+fileSeparator+resourcesPath+fileSeparator+"GlobalData.properties");
 		prop.load(fis);
 		
 //		String broswerName = prop.getppoProperty("browser");
@@ -108,7 +114,9 @@ public class BaseTest {
 		
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File sourceFile = ts.getScreenshotAs(OutputType.FILE);
-		String destFilePath = System.getProperty("user.dir")+"\\reports\\screenshots\\"+testCaseName+".png";
+//		String destFilePath = System.getProperty("user.dir")+"\\reports\\screenshots\\"+testCaseName+".png";
+		Path screenshotsPath = Paths.get("reports","screenshots");
+		String destFilePath = System.getProperty("user.dir")+fileSeparator+screenshotsPath+fileSeparator+testCaseName+".png";
 		File destFile = new File(destFilePath);
 		FileUtils.copyFile(sourceFile, destFile);
 		return destFilePath;

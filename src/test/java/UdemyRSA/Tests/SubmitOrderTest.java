@@ -1,6 +1,9 @@
 package UdemyRSA.Tests;
 
 import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 
@@ -18,6 +21,7 @@ import UdemyRSA.TestComponents.BaseTest;
 
 public class SubmitOrderTest extends BaseTest {
 
+	final String fileSeparator = FileSystems.getDefault().getSeparator();
 	String productName = "ZARA COAT 3";
 
 	@Test(dataProvider="getData", groups={"Purchase"})
@@ -56,7 +60,9 @@ public class SubmitOrderTest extends BaseTest {
 	@DataProvider
 	public Object[][] getData() throws IOException {
 		
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\java\\UdemyRSA\\Tests\\Data\\PurchaseOrder.json";
+//		String filePath = System.getProperty("user.dir")+"\\src\\test\\java\\UdemyRSA\\Tests\\Data\\PurchaseOrder.json";
+		Path dataPath = Paths.get("src","test","java","UdemyRSA","Tests","Data");
+		String filePath = System.getProperty("user.dir")+fileSeparator+dataPath+fileSeparator+"PurchaseOrder.json";
 		List<HashMap<String,String>> data = getJsonDataToMap(filePath);
 	
 		return new Object[][] {
