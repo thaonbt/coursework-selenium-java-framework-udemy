@@ -1,0 +1,26 @@
+# Eclipse
+.metadata/
+bin/
+target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# VS Code
+.vscode/
+
+# Build results
+/target/
+/build/
+/test-output/
+
+# Package files
+*.jar
+*.war
+*.ear
+*.zip
+
+# OS generated files #
+.DS_Store
