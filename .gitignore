@@ -1,5 +1,8 @@
 # Eclipse
 .metadata/
+.project
+.classpath
+.settings/
 bin/
 target/
 
@@ -15,6 +18,7 @@ out/
 /target/
 /build/
 /test-output/
+/reports/
 
 # Package files
 *.jar
