@@ -14,6 +14,7 @@ out/
 # Build results
 /target/
 /build/
+/test-output/
 
 # Package files
 *.jar
