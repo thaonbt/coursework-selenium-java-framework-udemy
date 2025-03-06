@@ -12,10 +12,8 @@ further download or setup locally is required.
 4. Run the application with
    `mvn test`
    or directly by TestNG
-<<<<<<< HEAD
-=======
 
 ### Notice for Eclipse, need to have 2 below files
  1. file .project
  2. file .classpath
->>>>>>> refs/remotes/origin/pr-3
+
