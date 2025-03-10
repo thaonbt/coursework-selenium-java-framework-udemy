@@ -1,5 +1,12 @@
 package UdemyRSA.Tests;
 
+import UdemyRSA.PageObjects.*;
+import UdemyRSA.TestComponents.BaseTest;
+import org.testng.Assert;
+import org.testng.AssertJUnit;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
@@ -7,89 +14,51 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 
-import org.testng.Assert;
-import org.testng.AssertJUnit;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+public class SubmitOrderTest_dataProviderEXCELHashMap extends BaseTest {
 
-import UdemyRSA.PageObjects.CartPage;
-import UdemyRSA.PageObjects.CheckoutPage;
-import UdemyRSA.PageObjects.ConfirmationPage;
-import UdemyRSA.PageObjects.OrdersPage;
-import UdemyRSA.PageObjects.ProductCatalogue;
-import UdemyRSA.TestComponents.BaseTest;
-
-public class SubmitOrderTest extends BaseTest {
-
-	// File separator for the current operating system
 	final String fileSeparator = FileSystems.getDefault().getSeparator();
-	// Product name to be used in the tests
 	String productName = "ZARA COAT 3";
 
-	/**
-	 * Test to submit an order.
-	 *
-	 * @param input HashMap containing email, password, and product name
-	 * @throws IOException if an I/O error occurs
-	 */
-	@Test(dataProvider = "getData", groups = {"Purchase"})
+	@Test(dataProvider="getData", groups={"Purchase"})
 	public void submitOrder(HashMap<String, String> input) {
-
-		// Login to the application
+	
+//		String productName = "ZARA COAT 3";
 //		ProductCatalogue productCatalogue = landingPage.loginApplication("tayoga2016@gmail.com", "TAYoga2016");
 //		ProductCatalogue productCatalogue = landingPage.loginApplication(email, password);
 		ProductCatalogue productCatalogue = landingPage.loginApplication(input.get("email"), input.get("password"));
-
-		// Add product to cart
 //		List<WebElement> products = productCatalogue.getProductList();
 		productCatalogue.addProductToCart(input.get("productName"));
 		CartPage cartPage = productCatalogue.goToCartPage();
-
-		// Verify product is displayed in the cart
 		Boolean match= cartPage.verifyProductDisplay(input.get("productName"));
 		Assert.assertTrue(match);
-
-		// Proceed to checkout
+		
 		CheckoutPage checkoutPage = cartPage.goToCheckout();
 		checkoutPage.selectCountry("india");
-
-		// Submit the order and verify confirmation message
 		ConfirmationPage confirmationPage = checkoutPage.submitOrder();
 		String confirmMessage = confirmationPage.verifyConfirmationMessage();
 		AssertJUnit.assertTrue(confirmMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
 
 	}
-
+	
 	//To verify ZARA COAT 3 is displaying in Order page
-	/**
-	 * Test to verify the order history.
-	 * This test depends on the submitOrder test.
-	 */
 	@Test(dependsOnMethods = {"submitOrder"})
 	public void OrderHistoryTest() {
-		// Login to the application
+		//ZARA COAT 3
 		ProductCatalogue productCatalogue = landingPage.loginApplication("tayoga2016@gmail.com", "TAYoga2016");
-
-		// Go to orders page and verify the product is displayed
 		OrdersPage ordersPage= productCatalogue.goToOrdersPage();
+		
 		Assert.assertTrue(ordersPage.verifyOrderDisplay(productName));
 	}
-	
-	//Extent Reports in HTML reports
-	/**
-	 * Data provider for the submitOrder test.
-	 *
-	 * @return Object[][] containing test data
-	 * @throws IOException if an I/O error occurs
-	 */
+
 	@DataProvider
 	public Object[][] getData() throws IOException {
-		// Path to the JSON data file
+		
 //		String filePath = System.getProperty("user.dir")+"\\src\\test\\java\\UdemyRSA\\Tests\\Data\\PurchaseOrder.json";
 		Path dataPath = Paths.get("src","test","java","UdemyRSA","Tests","Data");
-		String filePath = System.getProperty("user.dir")+fileSeparator+dataPath+fileSeparator+"PurchaseOrder.json";
-		// Read data from JSON file and return as Object[][]
+		String filePath = System.getProperty("user.dir")+fileSeparator+dataPath+fileSeparator+"PurchaseOrder.xlsx";
+
 		List<HashMap<String,String>> data = getJsonDataToMap(filePath);
+	
 		return new Object[][] {
 				{data.get(0)}, 
 				{data.get(1)}
