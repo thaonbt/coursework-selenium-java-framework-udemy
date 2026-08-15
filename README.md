@@ -6,7 +6,7 @@ This repository contains all the hands-on practice, core automation scripts, and
 ---
 
 ### 📂 Repository Structure Note
-*   **Tutorial Repo (`coursework-selenium-java-tutorial-udemy`):** Focuses on core Selenium Java concepts, locators, interactions, and advanced WebDriver components.
+*   **Tutorial Repo ([coursework-selenium-java-tutorial-udemy](https://github.com/thaonbt/coursework-selenium-java-tutorial-udemy)):** Focuses on core Selenium Java concepts, locators, interactions, and advanced WebDriver components.
 *   **Framework Repo:** The 8-part comprehensive automation framework built during this course has been separated into its own dedicated repository for better project isolation and dependency management.
 
 ### 🛠️ Tech Stack & Tools
